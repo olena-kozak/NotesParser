@@ -37,8 +37,8 @@ namespace NotesParser
 
         public static string ParseSign(string noteAsString)
         {
-            if (noteAsString.Contains("-")) return "-";
-            else if (noteAsString.Contains("+")) return "+";
+            if (noteAsString.Contains("-") && noteAsString.Length == noteAsString.IndexOf("-")) return "-";
+            else if (noteAsString.Contains("+") && (noteAsString.Length - 1) == noteAsString.IndexOf("+")) return "+";
             else if (noteAsString.Contains("--")) return "--";
             else if (noteAsString.Contains("++")) return "++";
             else return null;

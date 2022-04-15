@@ -42,42 +42,11 @@ namespace NotesParser
 
         public int CompareTo(Note? obj)
         {
-            if (_digit > obj.Digit) return 1;
-            else if (_digit < obj.Digit) return -1;
-            else if (_digit == obj.Digit)
-            {
-                if (_sign == null && obj.Sign == null) return 0;
-                else if (_sign != null && obj.Sign == null)
-                {
-                    if (_sign.Equals("-") || _sign.Equals("+")) return _sign == "-" ? -1 : 1;
-                    else if (_sign.Equals("--") || _sign.Equals("++")) return _sign == "--" ? -1 : 1;
-                    else
-                    {
-                        throw new Exception();
-                    }
-
-                }
-                else if (_sign == null && obj.Sign != null)
-                {
-                    if (obj.Sign.Equals("-") || obj.Sign.Equals("+")) return _sign == "-" ? -1 : 1;
-                    else
-                    {
-                        throw new Exception();
-                    }
-                }
-                else if (_sign != null && obj.Sign != null)
-                {
-                    if (_sign.Equals("-"))
-                    {
-
-                    }
-                }
-                else { throw new Exception(); }
-            }
-            else
-            {
-                throw new Exception();
-            }
+            var noteEquivalent = new NoteEquivalent();
+            int currentNote = noteEquivalent.ConvertToEquivalent(this);
+            var nextNote = noteEquivalent.ConvertToEquivalent(obj);
+            if (currentNote == nextNote) return 0;
+            else return currentNote > nextNote ? -1 : 1;
         }
     }
 }

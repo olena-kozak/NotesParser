@@ -8,31 +8,43 @@ namespace NotesParser
 {
     public class NoteEquivalent
     {
-        public const string ONE = "--1";
-        public const string TWO = "-1";
-        public const string THREE = "1";
-        public const string FOUR = "1+";
-        public const string FIVE = "1++";
-        public const string SIX = "--2";
-        public const string SEVEN = "-2";
-        public const string EIGHT = "2";
-        public const string NINE = "2+";
-        public const string TEN = "2++";
-        public const string ELEVEN = "--3";
-        public const string TWELVE = "-3";
-        public const string THIRTEEN = "3";
-        public const string FOURTEEN = "3+";
-        public const string FIFTEEN = "3++";
-        public const string SIXTEEN = "--4";
-        public const string SEVENTEEN = "-4";
-        public const string EIGHTEEN = "4";
-        public const string NINETEEN = "4+";
-        public const string TWENTY = "4++";
-        public const string TWENTY_ONE = "--5";
-        public const string TWENTY_TWO = "-5";
-        public const string TWENTY_THREE = "5";
-        public const string TWENTY_FOUR = "5+";
-        public const string TWENTY_FIVE = "5++";
+        private Dictionary<int, string> _noteEquivalent = new Dictionary<int, string>()
+        {
+            {1,"1--"},
+            { 2,"1-"},
+            { 3,"1"},
+            { 4,"1+"},
+            { 5,"1++"},
+            { 6,"2--"},
+            { 7,"2-"},
+            { 8,"2"},
+            { 9,"2+"},
+            { 10,"2++"},
+            { 11,"3--"},
+            { 12,"3-"},
+            { 13,"3"},
+            {14,"3+" },
+            { 15,"3++"},
+            { 16,"4--"},
+            { 17,"4-"},
+            { 18,"4"},
+            { 19,"4+"},
+            { 20,"4++"},
+            { 21,"5--"},
+            { 22,"5-"},
+            { 23,"5"},
+            { 24,"5+"},
+            { 25,"5++"}
+        };
+        public Dictionary<int, string> NoteEquivalents { get { return _noteEquivalent; } }
 
+        public int ConvertToEquivalent(Note note)
+        {
+            var noteAsString = note.ToString();
+            var noteEquivalent = this.NoteEquivalents
+                                    .Where(x => x.Value.Equals(noteAsString, StringComparison.OrdinalIgnoreCase))
+                                    .FirstOrDefault();
+            return noteEquivalent.Key;
+        }
     }
 }

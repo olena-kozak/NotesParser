@@ -15,7 +15,7 @@ class Program
         Note anotherNote = anotherNoteParser.ParseNote();
 
         NoteParser thirsNoteParser = new NoteParser(thirdInput);
-        Note thirdNote = noteParser.ParseNote();
+        Note thirdNote = thirsNoteParser.ParseNote();
 
         List<Note> notes = new List<Note>();
         notes.Add(note);
@@ -24,13 +24,14 @@ class Program
         notes.Add(new Note { Digit = 4, Sign = "--" });
         notes.Add(new Note { Digit = 3 });
         notes.Add(new Note { Digit = 1, Sign = "+" });
-        notes.OrderBy(x=>x);
-        // notes.Sort((a, b) => a.CompareTo(b));
+        // notes.OrderBy(x=>x);
+        notes.Sort((a, b) => b.CompareTo(a));
 
         Console.WriteLine("Sorted List");
         foreach (Note item in notes)
         {
             Console.WriteLine(item.ToString());
         }
+        Console.ReadKey();
     }
 }
