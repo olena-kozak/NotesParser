@@ -25,10 +25,15 @@ class Program
         notes.Add(new Note { Digit = 4, Sign = "--" });
         notes.Add(new Note { Digit = 3 });
         notes.Add(new Note { Digit = 1, Sign = "+" });
-        // notes.OrderBy(x => x);
-        notes.Sort((a, b) => b.CompareTo(a));
+        var notes2 = notes.OrderBy(x => x).ToList();
 
         Console.WriteLine("Sorted List");
+        foreach (Note item in notes2)
+        {
+            Console.WriteLine(item.NoteAsString);
+        }
+        Console.WriteLine("Sorted List");
+        notes.Sort((a, b) => b.CompareTo(a));
         foreach (Note item in notes)
         {
             Console.WriteLine(item.NoteAsString);
