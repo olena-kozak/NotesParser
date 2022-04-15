@@ -9,7 +9,6 @@ namespace NotesParser
 {
     public class NoteParser
     {
-
         private string _inputNote;
         public NoteParser(string inputNote)
         {

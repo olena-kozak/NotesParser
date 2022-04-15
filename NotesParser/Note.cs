@@ -35,8 +35,12 @@ namespace NotesParser
             }
 
         }
+
+        private string _noteAsString;
+        public string NoteAsString { get { return _noteAsString; } }
         public override string ToString()
         {
+            _noteAsString = $"{_digit}{_sign}";
             return $"{_digit}{_sign}";
         }
 

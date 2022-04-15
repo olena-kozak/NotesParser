@@ -8,6 +8,7 @@ class Program
         string anotherInput = Console.ReadLine();
         string thirdInput = Console.ReadLine();
 
+
         NoteParser noteParser = new NoteParser(input);
         Note note = noteParser.ParseNote();
 
@@ -24,13 +25,13 @@ class Program
         notes.Add(new Note { Digit = 4, Sign = "--" });
         notes.Add(new Note { Digit = 3 });
         notes.Add(new Note { Digit = 1, Sign = "+" });
-        // notes.OrderBy(x=>x);
+        // notes.OrderBy(x => x);
         notes.Sort((a, b) => b.CompareTo(a));
 
         Console.WriteLine("Sorted List");
         foreach (Note item in notes)
         {
-            Console.WriteLine(item.ToString());
+            Console.WriteLine(item.NoteAsString);
         }
         Console.ReadKey();
     }
