@@ -26,7 +26,7 @@ namespace NotesParser
             {
                 string value = match.Value;
                 string digitAsString = value.Substring(0, value.Length);
-                Decimal.TryParse(digitAsString, out digit);
+                decimal.TryParse(digitAsString, out digit);
                 return digit;
             }
             else

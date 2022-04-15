@@ -41,7 +41,7 @@ namespace NotesParser
         public int ConvertToEquivalent(Note note)
         {
             var noteAsString = note.ToString();
-            var noteEquivalent = this.NoteEquivalents
+            var noteEquivalent = NoteEquivalents
                                     .Where(x => x.Value.Equals(noteAsString, StringComparison.OrdinalIgnoreCase))
                                     .FirstOrDefault();
             return noteEquivalent.Key;
